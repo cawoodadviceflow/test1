@@ -1,0 +1,19 @@
+<script src='https://cdn.veriff.me/sdk/js/1.5/veriff.min.js'></script>
+<script src='https://cdn.veriff.me/incontext/js/v1/veriff.js'></script>
+
+<div id='veriff-root'></div>
+<script>
+  const veriff = Veriff({
+    host: 'https://stationapi.veriff.com',
+    apiKey: '59bcb30a-cbcb-4e9f-bf3a-b05038d39bfb',
+    parentId: 'veriff-root',
+    onSession: function(err, response) {
+      window.veriffSDK.createVeriffFrame({ url: response.verification.url });
+    }
+  });
+  veriff.mount({
+    formLabel: {
+      vendorData: 'Order number'
+    }
+  });
+</script>
